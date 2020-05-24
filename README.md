@@ -22,7 +22,7 @@ A good companion project for `fossil` is [Microraptor](https://github.com/matteo
 Import _fossil_ in your project with just one line of code:
 
 ```ts
-import { fossil } from "https://deno.land/x/fossil/fossil.ts";
+import { Validator } from "https://deno.land/x/fossil/fossil.ts";
 ```
 
 ## How to use
