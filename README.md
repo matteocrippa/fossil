@@ -2,7 +2,7 @@
 
 A typescript validation suite for deno projects.
 
-At this alpha stage fossil support validation for the following types:
+At this _alpha_ stage fossil support validation for the following types:
 
 - [x] String
 - [x] Number
@@ -14,6 +14,8 @@ At this alpha stage fossil support validation for the following types:
 - [x] Undefined
 - [ ] Email
 - [ ] Alphanumeric
+
+A good companion project for `fossil` is [Microraptor](https://github.com/matteocrippa/microraptor) a lightweight framework for easy routing.
 
 ## Install
 
@@ -44,8 +46,5 @@ console.log(testBoolean.isValid()); // true
 
 ## Extra
 
-A good companion project for `fossil` is [Microraptor](https://github.com/matteocrippa/microraptor) a lightweight framework for easy routing.
-
-### Credits
-
+_Credits_
 Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)
