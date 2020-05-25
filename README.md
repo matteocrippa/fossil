@@ -37,6 +37,8 @@ testBoolean = new Validator("home", ValidatorType.boolean);
 console.log(testBoolean.isValid()); // Invalid type
 ```
 
+For more use feel free to check test examples.
+
 ### Check type and value
 
 ```ts
