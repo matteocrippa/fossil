@@ -26,7 +26,7 @@ export enum ValidatorType {
 }
 
 export class Validator {
-  readonly value: unknown;
+  value: unknown;
   readonly type: ValidatorType;
   readonly allowed: Array<any>;
   readonly func?: ValidatorFunction;
