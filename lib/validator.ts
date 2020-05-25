@@ -26,58 +26,63 @@ export enum ValidatorType {
 }
 
 export class Validator {
-  value: unknown;
+  readonly value: unknown;
   readonly type: ValidatorType;
   readonly allowed: Array<any>;
   readonly func?: ValidatorFunction;
 
-  isValid(): Valid {
+  isValid(v?: unknown): Valid {
+    let value = this.value;
+    if (v) {
+      value = v;
+    }
+
     // validate type
     switch (this.type) {
       case ValidatorType.string:
-        if (typeof this.value !== "string") {
+        if (typeof value !== "string") {
           return ValidatorError.typeInvalid;
         }
         break;
 
       case ValidatorType.number:
-        if (typeof this.value !== "number") {
+        if (typeof value !== "number") {
           return ValidatorError.typeInvalid;
         }
         break;
 
       case ValidatorType.symbol:
-        if (typeof this.value !== "symbol") {
+        if (typeof value !== "symbol") {
           return ValidatorError.typeInvalid;
         }
         break;
 
       case ValidatorType.boolean:
-        if (this.value !== true && this.value !== false) {
+        if (value !== true && value !== false) {
           return ValidatorError.typeInvalid;
         }
         break;
 
       case ValidatorType.null:
-        if (this.value !== null) {
+        if (value !== null) {
           return ValidatorError.typeInvalid;
         }
         break;
 
       case ValidatorType.array:
-        if (!(this.value instanceof Array)) {
+        if (!(value instanceof Array)) {
           return ValidatorError.typeInvalid;
         }
         break;
 
       case ValidatorType.object:
-        if (!(this.value instanceof Object)) {
+        if (!(value instanceof Object)) {
           return ValidatorError.typeInvalid;
         }
         break;
 
       case ValidatorType.undefined:
-        if (this.value !== undefined) {
+        if (value !== undefined) {
           return ValidatorError.typeInvalid;
         }
         break;
@@ -88,7 +93,7 @@ export class Validator {
           if (this.allowed.length > 0) {
             return ValidatorError.functionValueNotAllowd;
           }
-          if (!f(this.value)) {
+          if (!f(value)) {
             return ValidatorError.functionFailed;
           }
         } else {
@@ -102,7 +107,7 @@ export class Validator {
       let hasValue = false;
       this.allowed.forEach((v) => {
         if (this.type === ValidatorType.array) {
-          const a = this.value as Array<unknown>;
+          const a = value as Array<unknown>;
           const b = v as Array<unknown>;
           const check = (a.length === b.length) &&
             (a.every((el) => b.includes(el)));
@@ -111,14 +116,14 @@ export class Validator {
             return;
           }
         } else if (this.type === ValidatorType.object) {
-          const a = this.value as Object;
+          const a = value as Object;
           const b = v as Object;
           const check = (JSON.stringify(a) === JSON.stringify(b));
           if (check) {
             hasValue = true;
             return;
           }
-        } else if (v === this.value) {
+        } else if (v === value) {
           hasValue = true;
         }
       });
