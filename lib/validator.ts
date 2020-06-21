@@ -1,5 +1,3 @@
-// eslint-disable no-case-declarations
-
 export enum ValidatorError {
   typeInvalid = "Invalid type",
   valueInvalid = "Invalid value",
@@ -88,7 +86,7 @@ export class Validator {
           return ValidatorError.typeInvalid;
         }
         break;
-
+      // deno-lint-ignore no-case-declarations
       case ValidatorType.function:
         const f = this.func as ValidatorFunction;
         if (f !== null && f !== undefined) {
