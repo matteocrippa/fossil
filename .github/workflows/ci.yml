@@ -25,5 +25,8 @@ jobs:
     - name: Setup Deno environment
       uses: denolib/setup-deno@v1.3.0
     
+    - name: Deno lint
+      run: deno lint --unstable
+
     - name: Run tests
       run: deno test test/*.ts
