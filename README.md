@@ -1,4 +1,4 @@
-# ![](https://raw.githubusercontent.com/matteocrippa/fossil/master/.github/footprint.png) fossil
+# ![Fossil Logo](https://raw.githubusercontent.com/matteocrippa/fossil/master/.github/footprint.png) fossil
 
 A typescript validation suite for deno projects.
 
