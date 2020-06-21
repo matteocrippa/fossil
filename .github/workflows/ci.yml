@@ -26,7 +26,7 @@ jobs:
       uses: denolib/setup-deno@v1.3.0
     
     - name: Deno lint
-      run: deno lint --unstable
+      run: deno lint --unstable ./lib/* fossil.ts
 
     - name: Run tests
       run: deno test test/*.ts

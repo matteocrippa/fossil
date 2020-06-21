@@ -1,3 +1,5 @@
+// eslint-disable no-case-declarations
+
 export enum ValidatorError {
   typeInvalid = "Invalid type",
   valueInvalid = "Invalid value",
@@ -28,7 +30,7 @@ export enum ValidatorType {
 export class Validator {
   readonly value: unknown;
   readonly type: ValidatorType;
-  readonly allowed: Array<any>;
+  readonly allowed: Array<unknown>;
   readonly func?: ValidatorFunction;
 
   isValid(v?: unknown): Valid {
@@ -136,9 +138,9 @@ export class Validator {
   }
 
   constructor(
-    value: any,
+    value: unknown,
     type: ValidatorType,
-    allowed: Array<any> = [],
+    allowed: Array<unknown> = [],
     func?: ValidatorFunction,
   ) {
     this.value = value;
