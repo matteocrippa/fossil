@@ -12,7 +12,7 @@ At this _alpha_ stage fossil support validation for the following types:
 - [x] Object
 - [x] Null
 - [x] Undefined
-- [ ] Email
+- [x] Email
 - [ ] Alphanumeric
 
 A good companion project for `fossil` is [Microraptor](https://github.com/matteocrippa/microraptor) a lightweight framework for easy routing.
