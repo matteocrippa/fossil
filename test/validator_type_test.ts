@@ -82,3 +82,19 @@ Deno.test("Type / Function", () => {
   );
   assertEquals(test.isValid(), ValidatorError.typeInvalid);
 });
+
+Deno.test("Type / Email", () => {
+  let test = new Validator("john@doe.it", ValidatorType.email);
+  assertEquals(test.isValid(), true);
+  test = new Validator("john+disposable@doe.it", ValidatorType.email);
+  assertEquals(test.isValid(), true);
+  test = new Validator({}, ValidatorType.email);
+  assertNotEquals(test.isValid(), true);
+  assertEquals(test.isValid(), ValidatorError.typeInvalid);
+  test = new Validator("johndoe.it", ValidatorType.email);
+  assertNotEquals(test.isValid(), true);
+  assertEquals(test.isValid(), ValidatorError.typeInvalid);
+  test = new Validator("johndoe@it", ValidatorType.email);
+  assertNotEquals(test.isValid(), true);
+  assertEquals(test.isValid(), ValidatorError.typeInvalid);
+});

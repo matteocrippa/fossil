@@ -100,6 +100,17 @@ export class Validator {
           return ValidatorError.typeInvalid;
         }
         break;
+      case ValidatorType.email:
+        if (typeof value !== "string") {
+          return ValidatorError.typeInvalid;
+        }
+        const safe = value as string;
+        const isEmail =
+          /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (!isEmail.test(safe)) {
+          return ValidatorError.typeInvalid;
+        }
+        break;
       default:
         return ValidatorError.typeInvalid;
     }
