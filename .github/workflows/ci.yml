@@ -26,10 +26,10 @@ jobs:
         uses: denolib/setup-deno@v1.3.0
 
       - name: Format
-        run: deno fmt
+        run: deno fmt --check
 
-      - name: Linting
-        run: deno lint --unstable ./lib/* fossil.ts
+      #- name: Linting
+      #  run: deno lint --unstable ./lib/* fossil.ts
 
       - name: Test
         run: deno test test/*.ts
