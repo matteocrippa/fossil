@@ -1,7 +1,7 @@
 import {
   assertEquals,
   assertNotEquals,
-} from "https://deno.land/std@0.51.0/testing/asserts.ts";
+} from "https://deno.land/std@0.58.0/testing/asserts.ts";
 import {
   Validator,
   ValidatorType,

@@ -100,6 +100,8 @@ export class Validator {
           return ValidatorError.typeInvalid;
         }
         break;
+      default:
+        return ValidatorError.typeInvalid;
     }
 
     // validate values
